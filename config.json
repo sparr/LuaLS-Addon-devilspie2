@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
-  "words": ["get_window_name\\(", "get_application_name\\(", "set_window_geometry\\("],
-  "files": [".config/devilspie2/.*\\.lua"],
+  "words": ["get_window_name%(", "get_application_name%(", "set_window_geometry%("],
+  "files": [".config/devilspie2/.*%.lua"],
   "settings": {
   }
 }
