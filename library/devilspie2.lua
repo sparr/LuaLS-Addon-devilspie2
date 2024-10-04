@@ -2,8 +2,6 @@
 
 ---Documentation originally from https://github.com/dsalt/devilspie2/blob/760df8ce0db8f51c75acbb27ab0e420174cb8352/README
 
-
-
 ---A 1-based index into the list of monitors.
 ---
 ---`0` refers to the "current" monitor based on the window's centre point,
@@ -47,13 +45,9 @@
 ---are other types that are not currently supported, such as arrays.
 ---@alias WindowPropertyValue string | number | boolean
 
-
-
 ---Print a string to stdout iff devilspie2 was run with the --debug option.
 ---@param string string
-function debug_print (string) end
-
-
+function debug_print(string) end
 
 ---Allow for situations where moving or resizing the window is done
 ---incorrectly.
@@ -77,19 +71,17 @@ function debug_print (string) end
 ---
 ---(available from version 0.45)
 ---@param adjust boolean? default true
-function set_adjust_for_decoration (adjust) end
-
-
+function set_adjust_for_decoration(adjust) end
 
 ---Get the name of the window.
 ---@return string name
-function get_window_name () end
+function get_window_name() end
 
 ---Get whether the window has a name or not.
 ---
 ---(from version 0.20)
 ---@return boolean has_name
-function get_window_has_name () end
+function get_window_has_name() end
 
 ---Set the position of the window.
 ---
@@ -114,7 +106,7 @@ function get_window_has_name () end
 ---@param y integer
 ---@param index MonitorIndex?
 ---@return boolean? success
-function set_window_position (x, y, index) end
+function set_window_position(x, y, index) end
 
 ---Set the position of the window.
 ---
@@ -125,12 +117,12 @@ function set_window_position (x, y, index) end
 ---@see set_window_position
 ---@param x integer
 ---@param y integer
-function set_window_position2 (x, y) end
+function set_window_position2(x, y) end
 
 ---Set the size of the window.
 ---@param width integer
 ---@param height integer
-function set_window_size (width, height) end
+function set_window_size(width, height) end
 
 ---Set the reserved area at the borders of the desktop for a docking area such
 ---as a taskbar or a panel.
@@ -153,9 +145,21 @@ function set_window_size (width, height) end
 ---@param top_end_x integer?
 ---@param bottom_start_x integer?
 ---@param bottom_end_x integer?
-function set_window_strut (left, right, top, bottom,
-    left_start_y, left_end_y,right_start_y, right_end_y,
-    top_start_x, top_end_x, bottom_start_x, bottom_end_x) end
+function set_window_strut(
+	left,
+	right,
+	top,
+	bottom,
+	left_start_y,
+	left_end_y,
+	right_start_y,
+	right_end_y,
+	top_start_x,
+	top_end_x,
+	bottom_start_x,
+	bottom_end_x
+)
+end
 
 ---Set size and position of the window.
 ---@see set_window_geometry2
@@ -163,7 +167,7 @@ function set_window_strut (left, right, top, bottom,
 ---@param y integer
 ---@param width integer
 ---@param height integer
-function set_window_geometry (x, y, width, height) end
+function set_window_geometry(x, y, width, height) end
 
 ---Set the window geometry just as set_window_geometry, using
 ---`XMoveResizeWindow` instead of its `libwnck` alternative.
@@ -178,181 +182,181 @@ function set_window_geometry (x, y, width, height) end
 ---@param y integer
 ---@param width integer
 ---@param height integer
-function set_window_geometry2 (x, y, width, height) end
+function set_window_geometry2(x, y, width, height) end
 
 ---Get the application name of the window.
 ---@return string application_name
-function get_application_name () end
+function get_application_name() end
 
 ---Shade the window, showing only the title-bar.
-function shade () end
+function shade() end
 
 ---Unshade the window, the opposite of `shade`.
-function unshade () end
+function unshade() end
 
 ---Maximise the window.
 ---
 ---(-ise from 0.45)
-function maximize () end
+function maximize() end
 maximise = maximize
 
 ---Maximise the window horizontally.
 ---
 ---(-ise from 0.45)
-function maximize_horizontally () end
+function maximize_horizontally() end
 maximise_horizontally = maximize_horizontally
 maximize_horisontally = maximize_horizontally -- deprecated
 
 ---Maximise the window vertically.
 ---
 ---(-ise from 0.45)
-function maximize_vertically () end
+function maximize_vertically() end
 maximise_vertically = maximize_vertically
 
 ---Unmaximise the window.
 ---
 ---(-ise from 0.45)
-function unmaximize () end
+function unmaximize() end
 unmaximise = unmaximize
 
 ---Minimise the window.
 ---
 ---(-ise from 0.45)
-function minimize () end
+function minimize() end
 minimise = minimize
 
 ---Unminimise the window.
 ---
 ---(-ise from 0.45)
-function unminimize () end
+function unminimize() end
 unminimise = unminimize
 
 ---Show all decorations for the window.
 ---@return boolean success?
-function decorate_window () end
+function decorate_window() end
 
 ---Remove all decorations from the window.
 ---@return boolean success?
-function undecorate_window () end
+function undecorate_window() end
 
 ---Move the window to another workspace.
 ---@param workspace WorkspaceIdentifier name or 1-based index
 ---@return boolean success?
-function set_window_workspace (workspace) end
+function set_window_workspace(workspace) end
 
 ---Change the current active workspace.
 ---@param workspace WorkspaceIdentifier name or 1-based index
 ---@return boolean success?
-function change_workspace (workspace) end
+function change_workspace(workspace) end
 
 ---Get the number of workspaces available.
 ---
 ---(available from version 0.27)
 ---@return integer workspace_count
-function get_workspace_count () end
+function get_workspace_count() end
 
 ---Ask the window manager to put the window on all workspaces.
 ---@see unpin_window
-function pin_window () end
+function pin_window() end
 
 ---Ask the window manager to put window only on the currently active workspace
 ---iff it was pinned.
 ---@see pin_window
-function unpin_window () end
+function unpin_window() end
 
 ---Ask the window manager to keep the window's position fixed on the screen,
 ---even when the workspace or viewport scrolls.
 ---@see unstick_window
-function stick_window () end
+function stick_window() end
 
 ---Ask the window manager to not have the window's position fixed on the screen
 ---when the workspace or viewport scrolls.
 ---@see stick_window
-function unstick_window () end
+function unstick_window() end
 
 ---Close the window.
 ---
 ---(available from 0.31)
-function close_window () end
+function close_window() end
 
 ---Get the window geometry.
 ---
 ---(from version 0.16)
 ---@return integer x, integer y, integer width, integer height
-function get_window_geometry () end
+function get_window_geometry() end
 
 ---Get the window geometry excluding the window manager borders.
 ---@return integer x, integer y, integer width, integer height
-function get_window_client_geometry () end
+function get_window_client_geometry() end
 
 ---Get the window frame extents.
 ---
 ---(from version 0.45)
 ---@return integer left, integer right, integer top, integer bottom
-function get_window_frame_extents () end
+function get_window_frame_extents() end
 
 ---Set the window to skip or not skip listing in your tasklist.
 ---
 ---(from version 0.16)
 ---@param skip boolean Whether to skip listing this window in your task list
-function set_skip_tasklist (skip) end
+function set_skip_tasklist(skip) end
 
 ---Set the window to skip or not skip listing in your pager.
 ---
 ---(from version 0.16)
 ---@param skip boolean Whether to skip listing this window in your pager
-function set_skip_pager (skip) end
+function set_skip_pager(skip) end
 
 ---Get whether the window is maximised.
 ---
 ---(available from version 0.21; -ise from 0.45)
 ---@return boolean is_maximized
-function get_window_is_maximized () end
+function get_window_is_maximized() end
 get_window_is_maximised = get_window_is_maximized
 
 ---Get whether the window is vertically maximised.
 ---
 ---(available from version 0.21; -ise from 0.45)
 ---@return boolean is_maximized_vertically
-function get_window_is_maximized_vertically () end
+function get_window_is_maximized_vertically() end
 get_window_is_maximised_vertically = get_window_is_maximized_vertically
 
 ---Get whether the window is horizontally maximised.
 ---
 ---(available from version 0.21; -ise from 0.45)
 ---@return boolean is_maximized_horizontally
-function get_window_is_maximized_horizontally () end
+function get_window_is_maximized_horizontally() end
 get_window_is_maximised_horizontally = get_window_is_maximized_horizontally
 get_window_is_maximized_horisontally = get_window_is_maximized_horizontally
 
 ---Get whether the window is pinned.
 ---@return boolean is_pinned
-function get_window_is_pinned () end
+function get_window_is_pinned() end
 
 ---Get whether the window is decorated.
 ---
 ---(available from version 0.44)
 ---@return boolean is_decorated
-function get_window_is_decorated () end
+function get_window_is_decorated() end
 
 ---Set the window below all normal windows, or unsets that behavior.
 ---
 ---(available from version 0.21)
 ---@param below boolean? Set (`true`, default) or unset (`false`) the always-on-bottom behavior
-function set_window_below (below) end
+function set_window_below(below) end
 
 ---Set the window above all normal windows, or unsets that behavior.
 ---
 ---(available from version 0.21)
 ---@see make_always_on_top is the same as `set_window_above(true)`.
 ---@param above boolean? Set (`true`, default) or unset (`false`) the always-on-top behavior
-function set_window_above (above) end
+function set_window_above(above) end
 
 ---Ask the window manager to set the fullscreen state of the window.
 ---
 ---(available from version 0.24)
 ---@param fullscreen boolean Set (`true`) or unset (`false`) the fullscreen state
-function set_window_fullscreen (fullscreen) end
+function set_window_fullscreen(fullscreen) end
 
 ---Set the window above all normal windows.
 ---
@@ -360,7 +364,7 @@ function set_window_fullscreen (fullscreen) end
 ---
 ---The same as `set_window_above(true)`.
 ---@see set_window_above
-function make_always_on_top () end
+function make_always_on_top() end
 
 ---Set the window on top of all others.
 ---
@@ -368,7 +372,7 @@ function make_always_on_top () end
 ---
 ---As of version 0.45, the window's layer (above, between, below) is
 ---maintained.
-function set_on_top () end
+function set_on_top() end
 
 ---Set the window below all others.
 ---
@@ -376,7 +380,7 @@ function set_on_top () end
 ---
 ---As of version 0.45, the window's layer (above, between, below) is
 ---maintained.
-function set_on_bottom () end
+function set_on_bottom() end
 
 ---Get the type of the window.
 ---
@@ -387,7 +391,7 @@ function set_on_bottom () end
 ---
 ---(available from version 0.21)
 ---@return WindowTypeShort | WindowTypeException type
-function get_window_type () end
+function get_window_type() end
 
 ---Get the value of a window property.
 ---
@@ -399,32 +403,32 @@ function get_window_type () end
 ---(available from version 0.21)
 ---@param property string name of the property
 ---@return string? value property value converted to a string
-function get_window_property (property) end
+function get_window_property(property) end
 
 ---Get the window role of the window.
 ---@return string role as defined by the `WM_WINDOW_ROLE` hint.
-function get_window_role () end
+function get_window_role() end
 
 ---Get the X window id of the window.
 ---@return integer xid
-function get_window_xid () end
+function get_window_xid() end
 
 ---Get the class of the window.
 ---@return string class
-function get_window_class () end
+function get_window_class() end
 
 ---Set a property of the window.
 ---
 ---(available from version 0.44)
 ---@param property string name of the property
 ---@param value WindowPropertyValue
-function set_window_property (property, value) end
+function set_window_property(property, value) end
 
 ---Remove a property from the window.
 ---
 ---(available from version 0.44)
 ---@param property string name of the property
-function delete_window_property (property) end
+function delete_window_property(property) end
 
 ---Move the window to the requested viewport
 ---
@@ -437,7 +441,7 @@ function delete_window_property (property) end
 ---(available from version 0.40)
 ---@param viewport integer 1-based viewport index
 ---@overload fun(x: integer, y: integer)
-function set_viewport (viewport) end
+function set_viewport(viewport) end
 
 ---Centre the window.
 ---
@@ -459,33 +463,33 @@ function set_viewport (viewport) end
 ---(Parameters and ‘centre’ available from version 0.44)
 ---@param index MonitorIndex? default `-1` (all monitors)
 ---@param direction string? Starts with "h" or "v", default `""` (both axes)
-function center (index, direction) end
+function center(index, direction) end
 centre = center
 
 ---Set the window opacity.
 ---
 ---(available from version 0.28, set_window_opacity from 0.29)
 ---@param opacity number `1.0` is completely opaque, `0.0` is completely see-through
-function set_window_opacity (opacity) end
+function set_window_opacity(opacity) end
 set_opacity = set_window_opacity
 
 ---Set the window type.
 ---
 ---(available from version 0.28)
 ---@param type WindowType
-function set_window_type (type) end
+function set_window_type(type) end
 
 ---Get the screen geometry for the screen of the window
 ---
 ---(available from version 0.29)
 ---@return integer width, integer height
-function get_screen_geometry () end
+function get_screen_geometry() end
 
 ---Get whether the window is fullscreen.
 ---
 ---(available from version 0.32)
 ---@return boolean is_fullscreen
-function get_window_fullscreen () end
+function get_window_fullscreen() end
 get_fullscreen = get_window_fullscreen
 
 ---Get the reserved area at the borders of the desktop for a docking
@@ -497,7 +501,7 @@ get_fullscreen = get_window_fullscreen
 ---
 ---(Available from version 0.45)
 ---@return integer[]?
-function get_window_strut () end
+function get_window_strut() end
 
 ---Get the class instance name for the window.
 ---
@@ -505,7 +509,7 @@ function get_window_strut () end
 ---
 ---(available from version 0.21)
 ---@return string class_instance_name from the `WM_CLASS` property
-function get_class_instance_name () end
+function get_class_instance_name() end
 
 ---Get the class group name for the window.
 ---
@@ -513,12 +517,12 @@ function get_class_instance_name () end
 ---
 ---(available from version 0.45)
 ---@return string class_group_name from the `WM_CLASS` property
-function get_class_group_name () end
+function get_class_group_name() end
 
 ---Focus the window.
 ---
 ---(available from version 0.30)
-function focus () end
+function focus() end
 focus_window = focus
 
 ---Get the index of the monitor containing the window centre (or some
@@ -526,14 +530,14 @@ focus_window = focus
 ---
 ---(available from version 0.44)
 ---@return integer monitor_index
-function get_monitor_index () end
+function get_monitor_index() end
 
 ---Get the geometry of a monitor.
 ---
 ---(available from version 0.44)
 ---@param index integer? monitor index (default is the window's monitor)
 ---@return integer x, integer y, integer width, integer height
-function get_monitor_geometry (index) end
+function get_monitor_geometry(index) end
 
 ---Set or get the position of the window
 ---
@@ -541,7 +545,7 @@ function get_monitor_geometry (index) end
 ---@param x integer
 ---@param y integer
 ---@overload fun(): integer, integer
-function xy (x, y) end
+function xy(x, y) end
 
 ---Set or get the position and size of the window.
 ---
@@ -549,12 +553,12 @@ function xy (x, y) end
 ---otherwise returns the current position and size.
 ---@return integer x, integer y, integer width, integer height
 ---@overload fun(x: integer, y: integer, width: integer, height: integer)
-function xywh () end
+function xywh() end
 
 ---Register a function to be called when the window's geometry changes in the
 ---future.
 ---@param callback fun()
-function on_geometry_changed (callback) end
+function on_geometry_changed(callback) end
 
 ---Get the name of the process owning the window.
 ---
@@ -566,9 +570,7 @@ function on_geometry_changed (callback) end
 ---
 ---(Available from version 0.44)
 ---@return string process_name
-function get_process_name () end
-
-
+function get_process_name() end
 
 ---If there is a file named devilspie2.lua in config folder, it is read and
 ---it is searched for the global variables linked below.
